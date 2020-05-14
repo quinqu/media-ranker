@@ -2,7 +2,6 @@ class VotesController < ApplicationController
 
 
   def index 
-
     if params[:work_id]
       work = Work.find_by(id: params[:work_id])
       user_votes = User.get_vote_users(work.vote)
