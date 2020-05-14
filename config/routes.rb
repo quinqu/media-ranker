@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   root to: "top_media#index"
   
   resources :works do 
-    resources :votes, only[:index]
+    resources :votes, only: [:index]
+  end
 
   resources :users do 
-    resources :votes, only [:index, :update]
+    resources :votes, only: [:index, :update]
   end 
 
-  resources :votes, only [:index, :update]
+  resources :votes, only: [:index, :update]
+
 end
