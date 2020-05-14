@@ -14,10 +14,7 @@ CSV.foreach(WORK_FILE, :headers => true) do |row|
   work.year = row['publication_year']
   work.description = row['description']
 
- 
-   
-  
-    successful = work.save
+  successful = work.save
   
 
   if !successful
