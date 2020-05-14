@@ -7,4 +7,11 @@ class Work < ApplicationRecord
     self.update_attribute(:vote_id, vote.id)
   end 
 
+  def self.get_voted_works(votes) 
+    works = []
+    votes.each do |vote| 
+      works << Work.find_by(id: vote.work_id)
+    end 
+    return works
+  end 
 end

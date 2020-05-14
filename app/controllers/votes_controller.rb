@@ -2,13 +2,16 @@ class VotesController < ApplicationController
 
 
   def index 
-    #TODO add if statemnet if we need show for user votes 
-    #Same with Works 
-    #works is going to need to see all the users that voted for the work 
-    # users show page will show all the works they voted for 
-    #https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/nested-routes.md
 
-    @votes = Votes.all  
+    if params[:work_id]
+      work = Work.find_by(id: params[:work_id])
+      user_votes = User.get_vote_users(work.vote)
+      @votes = user_votes
+    elsif params[:user_id] 
+      user = User.find_by(id: params[:user_id])
+      works = Work.get_voted_works(user.votes)
+      @votes = works
+    end
   end 
 
 
