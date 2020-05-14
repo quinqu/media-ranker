@@ -14,4 +14,25 @@ class Work < ApplicationRecord
     end 
     return works
   end 
+
+  def self.find_top_albums
+    #need to find where category ==  albums and top 10
+    albums = Work.where(:category => "album")
+    return albums
+  end 
+
+  def self.find_top_books
+    books = Work.where(:category => "book")
+    return books
+  end 
+
+  def self.find_top_movies
+    movies = Work.where(:category => "movie")
+    return movies
+  end 
+
+  def self.find_top_media
+    return Work.first
+  end
+
 end

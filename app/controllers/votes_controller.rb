@@ -13,6 +13,8 @@ class VotesController < ApplicationController
     end
   end 
 
+  
+
 
 
 

@@ -13,9 +13,9 @@
   <nav> 
     <ul> 
       <% if !session[:user_id]%>
-      <li><%= link_to "Login", login_path %> </li>
+        <li><%= link_to "Login", login_path %> </li>
       <%else%>
-      <li><%= link_to "Logout", logout_path, method: :post %> </li>
+        <li><%= link_to "Logout", logout_path, method: :post %> </li>
       <%end%>
     </ul>
    </nav> 
