@@ -49,4 +49,22 @@ describe UsersController do
       expect(session[:user_id]).must_equal user.id
     end 
   end
+
+  describe "logout" do 
+    it "can logout user" do 
+      user_hash = {
+        user: {
+          username: "Rie Lastname"
+        }
+      }
+      post login_path, params: user_hash
+
+      post logout_path
+
+      expect(session[:user_id]).must_be_nil
+
+    end
+  end 
+
+  
 end

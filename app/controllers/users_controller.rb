@@ -34,11 +34,23 @@ class UsersController < ApplicationController
     redirect_to root_path
   end 
 
-  
-
   def logout 
+    if session[:user_id]
+      user = User.find_by(id: session[:user_id])
+      unless user.nil? 
+        session[:user_id] = nil
+        flash[:notice] = "Goodbye"
+      else
+        session[:user_id] = nil
+        flash[:error] = "Unknow User"
+      end 
+    else 
+      flash[:error] = "You are not logged in"
+      redirect_to root_path
+    end
 
   end 
+
 
   def current 
 
