@@ -1,17 +1,21 @@
 
+
+
+<h1> List of All Works </h1> 
 <h3>Albums </h3>
 
-<%@albums.each do |album|%>
-  <%= album.title %>
+<% @albums.each do |album|%>
+
+  <%= link_to album.title, work_path(album.id) %>
 <% end %>
 
 
 <h3>Books </h3>
 <%@books.each do |book|%>
-  <%= book.title%>
+  <%= link_to book.title, work_path(book.id) %>
 <% end %>
 
 <h3>Movies </h3>
 <%@movies.each do |movie|%>
-  <%= movie.title %>
+  <%= link_to movie.title, work_path(movie.id) %>
 <% end %>
