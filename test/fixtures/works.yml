@@ -1,0 +1,18 @@
+album: 
+  title: Trick 
+  category: album
+  year: 2015
+  description: A really nice album 
+  creator: (Sandy) Alex G
+movie: 
+  title: Us
+  category: movie 
+  year: 2019 
+  description: a scary movie 
+  creator: Jordan Peele
+book: 
+  title: If I stay 
+  category: book
+  year: 2009
+  description: girl dies, has a musician bf 
+  creator: Gayle Forman 
