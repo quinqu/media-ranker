@@ -1,12 +1,9 @@
 <p> Login </p>
-
-
-
-  <%= form_with model: @user, url: login_path do |f| %>
-    <div>
-      <%= f.label "Username:" %>
-      <%= f.text_field :username %>
-    </div>  
-      <%= f.submit "Login" %>
-    
-  <% end %>
+<%= form_with model: @user, url: login_path do |f| %>
+  <div>
+    <%= f.label "Username:" %>
+    <%= f.text_field :username %>
+  </div>  
+    <%= f.submit "Login" %>
+  
+<% end %>
