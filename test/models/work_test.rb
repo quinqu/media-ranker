@@ -15,8 +15,6 @@ describe Work do
 
     work = Work.first
     [:title, :category, :year, :description, :creator].each do |field|
-
-      # Assert
       expect(work).must_respond_to field
     end
   end
@@ -53,7 +51,7 @@ describe Work do
     end 
 
     it "will find the top media " do 
-
+      #TODO
 
     end 
 
@@ -63,15 +61,5 @@ describe Work do
 
     end 
 
-
-
   end 
-
-
-
-
-
-
-
-
 end
