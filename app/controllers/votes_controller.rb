@@ -8,9 +8,14 @@ class VotesController < ApplicationController
       @votes = user_votes
     elsif params[:user_id] 
       user = User.find_by(id: params[:user_id])
-      works = Work.get_voted_works(user.votes)
-      @votes = works
+      votes = Vote.get_votes_by_user(user)
+       @votes = votes
     end
+  end 
+
+  def update 
+    #add user to vote.users
+
   end 
 
   

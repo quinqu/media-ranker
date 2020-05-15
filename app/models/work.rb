@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  belongs_to :vote, optional: true
+  has_one :vote
   after_create :create_vote
   validates :title, presence: true
   validates :creator, presence: true

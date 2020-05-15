@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_192635) do
+ActiveRecord::Schema.define(version: 2020_05_15_210020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,14 +19,17 @@ ActiveRecord::Schema.define(version: 2020_05_15_192635) do
     t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "join_date"
+    t.string "join_date"
   end
 
-  create_table "users_votes_joins", force: :cascade do |t|
+  create_table "users_votes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "vote_id"
+    t.index ["user_id"], name: "index_users_votes_on_user_id"
+    t.index ["vote_id"], name: "index_users_votes_on_vote_id"
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "work_id"
@@ -41,8 +44,6 @@ ActiveRecord::Schema.define(version: 2020_05_15_192635) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "vote_id"
-    t.index ["vote_id"], name: "index_works_on_vote_id"
   end
 
 end

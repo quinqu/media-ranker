@@ -11,5 +11,7 @@
 
   <%= link_to "Edit Media", edit_work_path(@work) %>
   <%= link_to "Delete Media", work_path(@work), method: :delete, data: {confirm: "Are you sure you want to delete #{@work.title}?"}  %>
-
-  
+ 
+ <% vote = Vote.find_by(work_id: @work.id)%>
+ <% user = User.find_by(id: session[:user_id])%>
+ <%= link_to "Add Vote", user_votes_path(user.id)%>

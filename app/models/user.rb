@@ -1,12 +1,16 @@
 class User < ApplicationRecord
-  has_many :votes
+  has_and_belongs_to_many :votes
 
-  def self.get_vote_users(vote)
-    users = []
-    vote.users.each do |user_id|
-      users << User.find_by(id: user_id)
+  def self.get_user_votes(vote)
+    votes = []
+    users.votes.each do |vote|
+      votes << Vote.find_by(id: vote.vote_id)
     end 
-    return users
+    return votes
   end
+
+  
+
+
   
 end
