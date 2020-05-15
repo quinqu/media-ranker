@@ -1,0 +1,17 @@
+
+
+<table>
+  <tr> 
+    <th> Username </th>
+    <th> Votes </th>
+    <th> Join Date </th>
+  </tr>
+    <%@user.each do |u| %>
+    <tr>
+      <td> <%= u.username%></td>
+      <td> <%= u.votes.length %></td>
+      <td> <%= u.join_date %></td>
+     
+    </tr>
+  <%end %>
+</table>

@@ -1,9 +1,6 @@
 
-
-
 <h1> List of All Works </h1> 
 <h3>Albums </h3>
-
 <table>
   <tr>
       <th> Votes</th>
@@ -12,7 +9,6 @@
       <th> Published </th>
       <th> Upvote </th>
   </tr>
-
   <% @albums.each do |album|%>
   <tr>
     <% vote_id = album.vote.id %>
@@ -37,7 +33,6 @@
       <th> Published </th>
       <th> Upvote </th>
   </tr>
-
 <%@books.each do |book|%>
   <tr>  
     <% vote_id = book.vote.id %>
@@ -53,7 +48,6 @@
 
 <h3>Movies </h3>
 <table>
-
   <tr>
       <th> Votes</th>
       <th> Title </th>
