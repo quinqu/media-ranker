@@ -1,0 +1,21 @@
+  <%= form_with model: @work do |f| %>
+    
+    
+    <%= f.select :category, options_for_select(Work.category_options) %>
+
+    <%= f.label "Title:" %>
+    <%= f.text_field :title, placeholder: "#{title}" %>
+
+    <%= f.label "Creator:" %>
+    <%= f.text_field :creator, placeholder: "#{creator}" %>
+
+    <%= f.label "Publication Year:" %>
+    <%= f.text_field :year, placeholder: "#{year}" %>
+
+    <%= f.label "Description:" %>
+    <%= f.text_field :description, placeholder: "#{description}" %>
+
+   
+    <%= f.submit "#{action_name} Media" %>
+
+  <% end %> 
