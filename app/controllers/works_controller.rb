@@ -7,5 +7,16 @@ class WorksController < ApplicationController
   def show 
     @work = Work.find_by(id: params[:id])
   end 
+
+  def new
+    @work = Work.new
+  end 
+
+  
+  def create 
+
+  end 
+
+
   
 end

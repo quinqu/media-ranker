@@ -1,0 +1,22 @@
+
+<h1> New Media </h1>
+
+  <%= form_with model: @work do |f| %>
+    
+    
+    <%= f.label "Title:" %>
+    <%= f.text_field :title %>
+
+    <%= f.label "Creator:" %>
+    <%= f.text_field :creator %>
+
+    <%= f.label "Publication Year:" %>
+    <%= f.text_field :year %>
+
+    <%= f.label "Description:" %>
+    <%= f.text_field :description %>
+
+   
+    <%= f.submit "Submit Media" %>
+
+  <% end %> 

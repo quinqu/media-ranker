@@ -18,17 +18,17 @@ class Work < ApplicationRecord
   def self.find_top_albums
     #need to find where category ==  albums and top 10
     albums = Work.where(:category => "album")
-    return albums
+    return albums.sample(10)
   end 
 
   def self.find_top_books
     books = Work.where(:category => "book")
-    return books
+    return books.sample(10)
   end 
 
   def self.find_top_movies
     movies = Work.where(:category => "movie")
-    return movies
+    return movies.sample(10)
   end 
 
   def self.find_top_media
