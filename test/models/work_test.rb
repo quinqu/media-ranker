@@ -1,6 +1,26 @@
 require "test_helper"
 
 describe Work do
+
+  let (:new_work) {
+    Work.new(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
+  }
+  it "can be instantiated" do
+    # Assert
+    expect(new_work.valid?).must_equal true
+  end
+
+  it "will have the required fields" do
+    new_work.save
+
+    work = Work.first
+    [:title, :category, :year, :description, :creator].each do |field|
+
+      # Assert
+      expect(work).must_respond_to field
+    end
+  end
+
   describe "relations" do 
     it "has a creator" do 
       movie = works(:movie)
