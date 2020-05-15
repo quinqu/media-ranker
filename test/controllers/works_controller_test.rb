@@ -116,10 +116,7 @@ describe WorksController do
   describe "delete" do 
     it "will delete work" do
       Work.create(title: "delete me", category: "book", year: "2000", description: "DELETE", creator: "creator")
-
       work = Work.first
-  
-
       expect{delete work_path(Work.first.id)}.must_differ "Work.count", -1
     end
 
