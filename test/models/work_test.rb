@@ -19,6 +19,34 @@ describe Work do
     end 
   end 
 
+  describe "work model methods" do 
+    it "will get top albums, books, movies" do 
+      albums = Work.find_top_albums
+      expect(albums).must_be_instance_of Array
+      #expect(albums.length).must_equal 10 
+
+      books = Work.find_top_books
+      expect(books).must_be_instance_of Array
+
+      movies = Work.find_top_albums
+      expect(movies).must_be_instance_of Array
+    end 
+
+    it "will find the top media " do 
+
+
+    end 
+
+    it "will return catergory options for view" do 
+      options = Work.category_options
+      expect(options).must_be_instance_of Array
+
+    end 
+
+
+
+  end 
+
 
 
 
