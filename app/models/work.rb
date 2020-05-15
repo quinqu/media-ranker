@@ -35,4 +35,8 @@ class Work < ApplicationRecord
     return Work.first
   end
 
+  def self.category_options
+    [["Album", "album"], ["Book", "book"], ["Movie", "movie"]]
+  end 
+
 end

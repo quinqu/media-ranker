@@ -6,6 +6,7 @@ class WorksController < ApplicationController
 
   def show 
     @work = Work.find_by(id: params[:id])
+
   end 
 
   def new
@@ -14,9 +15,22 @@ class WorksController < ApplicationController
 
   
   def create 
-
+    @work = Work.new(work_params)
+    if @work.save 
+      redirect_to root_path
+      #redirect_to work_path(@passenger.id)
+    else
+      render :new
+      return 
+    end 
   end 
 
+  private 
+
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator, :year, :description)
+ 
+  end 
 
   
 end
