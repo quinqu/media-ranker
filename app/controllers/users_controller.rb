@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     end 
 
     session[:user_id] = user.id
-    redirect_to root_path
+    redirect_to new_work_path
   end 
 
   def logout 
@@ -54,6 +54,12 @@ class UsersController < ApplicationController
 
   def current 
 
+  end 
+
+  private 
+
+  def user_params
+    return params.require(:user).permit(:username)
   end 
 
 
