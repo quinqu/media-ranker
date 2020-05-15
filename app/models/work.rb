@@ -1,6 +1,11 @@
 class Work < ApplicationRecord
   belongs_to :vote, optional: true
   after_create :create_vote
+  validates :title, presence: true
+  validates :creator, presence: true
+  validates :year, presence: true
+  validates :description, presence: true
+
 
   def create_vote
     vote = Vote.create(work_id: self.id, count: 0)
