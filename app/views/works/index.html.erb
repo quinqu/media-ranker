@@ -1,4 +1,17 @@
 
-<% @work.each do |work|%>
-  <%=work.title%>
-<%end %>
+<h3>Albums </h3>
+
+<%@albums.each do |album|%>
+  <%= album.title %>
+<% end %>
+
+
+<h3>Books </h3>
+<%@books.each do |book|%>
+  <%= book.title%>
+<% end %>
+
+<h3>Movies </h3>
+<%@movies.each do |movie|%>
+  <%= movie.title %>
+<% end %>
