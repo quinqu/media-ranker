@@ -7,18 +7,19 @@ class Work < ApplicationRecord
   validates :description, presence: true
 
 
+
   def create_vote
     vote = Vote.create(work_id: self.id, count: 0)
     self.update_attribute(:vote_id, vote.id)
   end 
 
-  def self.get_voted_works(votes) 
-    works = []
-    votes.each do |vote| 
-      works << Work.find_by(id: vote.work_id)
-    end 
-    return works
-  end 
+  # def self.get_voted_works(votes) 
+  #   works = []
+  #   votes.each do |vote| 
+  #     works << Work.find_by(id: vote.work_id)
+  #   end 
+  #   return works
+  # end 
 
   def self.find_top_albums
     #need to find where category ==  albums and top 10

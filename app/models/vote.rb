@@ -4,10 +4,14 @@ class Vote < ApplicationRecord
 
   def self.get_votes_by_user(user)
     votes = []
-    votes.users.each do |vote| 
-      votes << Vote.find_by(user_id: user.id)
+    user.votes.each do |vote| 
+      votes << Vote.find_by(id: vote.id)
     end 
     return votes
+  end 
+
+  def add_user(user)
+    self.users << user
   end 
 
 end
