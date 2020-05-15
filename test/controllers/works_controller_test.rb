@@ -64,8 +64,64 @@ describe WorksController do
     end 
   end 
 
+  describe "edit " do 
+
+    it "will edit" do 
+      edit_work = {
+        work: { 
+          title: "Night and Blur", 
+          category: "album", 
+          year: "2020", 
+          description: "awesome album", 
+          creator: "The Bilinda Butchers"
+        }
+      }
+
+      post works_path, params: edit_work
+      work = Work.find_by(title: edit_work[:work][:title])
+
+      get edit_work_path(work.id)
+      must_respond_with :ok
+    end 
+
+    it "will respond with redirect if nonexistent work" do
+      get edit_work_path(-100)
+      must_respond_with :not_found
+    end
+  end 
+
+  describe "update" do 
+    it "will update el work " do 
+
+    update_work = {
+      work: { 
+        title: "Night and Blur", 
+        category: "album", 
+        year: "2020", 
+        description: "awesome album", 
+        creator: "The Bilinda Butchers"
+      }
+    }
+
+    work = Work.first
+    patch work_path(work.id), params: update_work
+  
+    expect(Work.first.title).must_equal update_work[:work][:title]
+    expect(Work.first.year).must_equal update_work[:work][:year]
+    end 
+
+  end 
+
 
   describe "delete" do 
+    it "will delete work" do
+      Work.create(title: "delete me", category: "book", year: "2000", description: "DELETE", creator: "creator")
+
+      work = Work.first
+  
+
+      expect{delete work_path(Work.first.id)}.must_differ "Work.count", -1
+    end
 
   end 
 
