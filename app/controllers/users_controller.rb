@@ -17,22 +17,24 @@ class UsersController < ApplicationController
   end 
 
   def login 
-    user = User.find_by(username: params[:user][:username])
-    if user.nil? 
-      user = User.new(username: params[:user][:username])
-      if !user.save 
+    @user = User.find_by(username: params[:user][:username])
+    if @user.nil? 
+      date = Time.now
+      @user = User.new(username: params[:user][:username], join_date: date.strftime("%B %d, %Y").to_s)
+      if !@user.save 
         flash[:error] = "Unable to login"
         redirect_to root_path
       end 
 
-      flash[:welcome] = "Welcome #{user.username}"
+      flash[:welcome] = "Welcome #{@user.username}"
     else
-      flash[:welcome] = "Welcome back #{user.username}"
+
+      flash[:welcome] = "Welcome back #{@user.username}"
     end 
 
-    session[:user_id] = user.id
+    session[:user_id] = @user.id
     redirect_to new_work_path
-  end 
+    end 
 
   def logout 
     if session[:user_id]
@@ -58,9 +60,9 @@ class UsersController < ApplicationController
 
   private 
 
-  def user_params
-    return params.require(:user).permit(:username)
-  end 
+  # def user_params
+  #   return params.require(:user).permit(:username)
+  # end 
 
 
 end
