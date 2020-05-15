@@ -9,9 +9,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header> MediaRanker</header>
+  <header> <h1> MediaRanker</h1> 
   <nav> 
     <ul> 
+      <li><%= link_to "View Top Media", top_media_index_path %> </li> 
       <li><%= link_to "View All Media", works_path %> </li> 
       <li><%= link_to "Add A New Work", new_work_path %> </li> 
       <li><%= link_to "View All Users", users_path %> </li> 
@@ -20,11 +21,13 @@
         <li><%= link_to "Login", login_path %> </li>
       <%else%>
           <% user = User.find_by(id: session[:user_id])%>
-          <p> Logged in as <%= user.username %> </p>
+          <li> Logged in as <%= user.username %> </li>
         <li><%= link_to "Logout", logout_path, method: :post %> </li>
       <%end%>
     </ul>
    </nav> 
+
+  </header>
   <body>
     <%= yield %>
   </body>
