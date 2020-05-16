@@ -1,5 +1,20 @@
 
 <h1> List of All Works </h1> 
+
+<body>
+  <section class="flash-msg__section">
+    <% flash.each do |name, message| %>
+      <strong class="<%= name %>">
+        <%= message %>
+      </strong>
+    <% end %>
+  </section>
+
+  <%= yield %>
+</body>
+
+
+
 <h3>Albums </h3>
 <table>
   <tr>
@@ -16,8 +31,7 @@
     <td><%= link_to album.title, work_path(album.id) %> </td>
     <td> <%= album.creator %> </td> 
     <td> <%= album.year %> </td> 
-    <% vote = Vote.find_by(id: album.vote.id) %>
-    <td> <%= link_to "Upvote", upvote_path(vote.id), method: :get %> </td> 
+    <td> <%= link_to "Upvote", upvote_path(vote_id), method: :get %> </td> 
   </tr>
   <% end %>
 </table>
@@ -41,8 +55,7 @@
     <td> <%= link_to book.title, work_path(book.id) %></td>
     <td> <%= book.creator%> </td>
     <td> <%= book.year%></td>
-    <% vote = Vote.find_by(id: book.vote.id) %>
-    <td> <%= link_to "Upvote", upvote_path(vote.id), method: :get %> </td> 
+    <td> <%= link_to "Upvote", upvote_path(vote_id), method: :get %> </td> 
   </tr>
   <% end %>
 </table>
@@ -64,9 +77,8 @@
       <td><%= User.get_users(vote_id).length %> </td>
       <td><%= link_to movie.title, work_path(movie.id) %></td>
       <td> <%= movie.creator %> </td>
-      <td> <%= movie.year%> </td>
-      <% vote = Vote.find_by(id: movie.vote.id) %>
-      <td> <%= link_to "Upvote", upvote_path(vote.id), method: :get %> </td> 
+      <td> <%= movie.year %> </td>
+      <td> <%= link_to "Upvote", upvote_path(vote_id), method: :get %> </td> 
     </tr>
   <% end %>
 </table>
