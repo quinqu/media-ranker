@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :votes, only: [:index, :update]
   end 
 
+  get "/upvote/", to: "votes#upvote", as: "upvote"
+
   resources :votes, only: [:index, :new, :create, :update] do 
     resources :users, only: [:index, :update]
   end 
