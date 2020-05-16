@@ -1,0 +1,25 @@
+
+<table>
+  <tr>
+      <th> Votes </th>
+      <th> Title </th>
+      <th> Created By </th>
+      <th> Published </th>
+      <th> Upvote </th>
+  </tr>
+  <% type.each do |album|%>
+  <tr>
+    <% vote_id = album.vote.id %>
+    <td> <%= User.get_users(vote_id).length %> </td>
+    <td><%= link_to album.title, work_path(album.id) %> </td>
+    <td> <%= album.creator %> </td> 
+    <td> <%= album.year %> </td> 
+    <td> <%= link_to "Upvote", upvote_path(vote_id), method: :get %> </td> 
+  </tr>
+  <% end %>
+</table>
+
+
+
+
+

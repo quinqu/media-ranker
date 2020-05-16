@@ -18,7 +18,6 @@ class User < ApplicationRecord
         return false
       end 
     end 
-
     return true 
   end 
   

@@ -1,3 +1,29 @@
 
 
 
+<h2> <%= @user.username%> </h2>
+
+<p> Joined on: <%= @user.join_date %> </p>
+
+<table>
+  <tr> 
+    <th> Work Title </th>
+    <th> Created By </th>
+    <th> Published </th>
+    <th> Category </th>
+    <th> Voted On </th>
+  </tr>
+<% @user.votes.each do |vote| %>
+  <% work = Work.find_by(id: vote.work_id)%>
+  <tr>
+    <td> <%= work.title %> </td>
+    <td>  <%= work.creator %></td>
+    <td>  <%= work.year %></td>
+    <td>  <%= work.category %></td>
+    <td> date </td>
+
+  </tr>
+
+  <%end %>
+</table>
+

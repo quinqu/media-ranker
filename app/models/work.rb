@@ -31,6 +31,8 @@ class Work < ApplicationRecord
   def self.find_top_media
     return Work.first
   end
+  
+  protected 
 
   def self.category_options
     [["Album", "album"], ["Book", "book"], ["Movie", "movie"]]

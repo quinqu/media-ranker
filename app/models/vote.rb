@@ -10,8 +10,6 @@ class Vote < ApplicationRecord
     return votes
   end 
 
-  def add_user(user)
-    self.users << user
-  end 
+  
 
 end

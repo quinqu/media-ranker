@@ -24,7 +24,8 @@ class WorksController < ApplicationController
   def create 
     @work = Work.new(work_params)
     if @work.save 
-      redirect_to work_path(@work.id)
+      redirect_to works_path
+      return 
     else
       render :new
       return 
