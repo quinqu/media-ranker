@@ -12,26 +12,19 @@ class Work < ApplicationRecord
     vote = Vote.create(work_id: self.id)
   end  
 
-  def self.find_top_albums
-    #need to find where category ==  albums and top 10
-    albums = Work.where(:category => "album")
-    return albums.sample(10)
+
+  def self.find_top_amount(type)
+    works = Work.where(category: type)
+    works = works.sort_by { |work| work.vote.users.length }
+    return works.last(10).reverse
   end 
 
-  def self.find_top_books
-    books = Work.where(:category => "book")
-    return books.sample(10)
+  def self.find_top
+    works = Work.all
+    works = works.sort_by { |work| work.vote.users.length }
+    return works[works.length - 1]
   end 
 
-  def self.find_top_movies
-    movies = Work.where(:category => "movie")
-    return movies.sample(10)
-  end 
-
-  def self.find_top_media
-    return Work.first
-  end
-  
   protected 
 
   def self.category_options
