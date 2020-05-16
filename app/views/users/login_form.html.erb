@@ -1,4 +1,16 @@
-<p> Login </p>
+<h3> Login Here </h3>
+<body>
+  <section class="flash-msg__section">
+    <% flash.each do |name, message| %>
+      <strong class="<%= name %>">
+        <%= message %>
+      </strong>
+    <% end %>
+  </section>
+
+  <%= yield %>
+</body>
+
 <%= form_with model: @user, url: login_path do |f| %>
   <div>
     <%= f.label "Username:" %>
