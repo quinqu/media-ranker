@@ -4,18 +4,22 @@
 
 
 .media-spotlight{
-  padding: 5%;
+  padding: 5% 5% 3% 5%;
+  
 }
-
 
 .top-media {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 3%;
+  
 }
-
-.card-columns {
-  min-height: 100%;
+.top-media > * >  h3 {
+  text-align: center;
+}
+.card {
+  padding: 1%;
+  margin: 2%;
 }
 
 .top-media > div {
