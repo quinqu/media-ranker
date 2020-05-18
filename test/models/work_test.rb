@@ -57,6 +57,28 @@ describe Work do
       expect(vote.work_id).must_equal movie.id
     end 
 
+    # it "will sort media by votes" do 
+    #   album =  Work.create(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
+    #   album2 =  Work.create(title: "Test", category: "movie", year: "2030", description: "random", creator: "creator")
+ 
+
+    #   vote = Vote.find_by(work_id: album.id)
+      
+
+    #   vote.users << User.create(username: "test")
+    #   vote.users << User.create(username: "test2")
+      
+    #   sorted = Work.sort_media("album")
+    #   expect(sorted[0].title).must_equal works(:album).title
+
+    # end 
+
+    it "will raise an error if invalid type" do 
+
+      expect{Work.sort_media("nothing")}.must_raise ArgumentError
+
+    end
+
   end 
 
 end

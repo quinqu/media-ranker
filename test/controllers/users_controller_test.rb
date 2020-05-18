@@ -54,7 +54,7 @@ describe UsersController do
     it "can logout user" do 
       user_hash = {
         user: {
-          username: "Rie Lastname"
+          username: "Rie"
         }
       }
       post login_path, params: user_hash

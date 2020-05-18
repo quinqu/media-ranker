@@ -19,7 +19,7 @@ describe User do
 
   end 
 
-  it " will not let user vote if they have voted" do 
+  it "will not let user vote if they have voted" do 
     work = Work.create(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
     vote = Vote.find_by(work_id: work.id)
 

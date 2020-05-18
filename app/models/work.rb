@@ -26,7 +26,11 @@ class Work < ApplicationRecord
   end
   
   def self.sort_media(type)
-
+    valid_types = ["book", "album", "movie"]
+    if !valid_types.include?(type)
+      raise ArgumentError, "Invalid type"
+    end 
+    
     works = Work.where(category: type)
     works = works.sort_by { |work| work.vote.users.length }
     return works.reverse

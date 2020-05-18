@@ -16,3 +16,10 @@ book:
   year: 2009
   description: girl dies, has a musician bf 
   creator: Gayle Forman 
+
+album2: 
+  title: Album 2
+  category: album
+  year: 2020
+  description: A really nice album 
+  creator: A person
