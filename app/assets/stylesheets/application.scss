@@ -14,3 +14,44 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
 @import "**/*";
+
+.app-header {
+  padding: 5% 5% 3% 5%;
+  color: white;
+}
+
+a {
+  color: #CE5F1E;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  width: 100%;
+  padding-top: 4% !important;
+}
+
+.nav-link{
+  color: white;
+}
+
+.login{
+  float: right;
+  text-align: end;
+}
+.main-links{
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+.form {
+  width: 50%;
+  margin-left: 10%;
+}
+
+.errors {
+  list-style: none;
+  color: red;
+}

@@ -1,3 +1,30 @@
 // Place all the styles related to the TopMedia controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.media-spotlight{
+  padding: 5% 5% 3% 5%;
+  background-color: #EEE671;
+  border: solid white 20px;
+}
+
+.top-media {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 3%;
+  
+  
+}
+.top-media > * >  h3 {
+  text-align: center;
+}
+.card {
+  padding: 1%;
+  margin: 2%;
+}
+
+.top-media > div {
+  padding: 3%;
+
+}

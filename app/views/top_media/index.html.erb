@@ -1,15 +1,42 @@
 <div class="media-spotlight"> 
-  <h3> Media Spotlight: <%=@top_media.title%> by <%=@top_media.creator%> </h3>
-  <p> <%= @top_media.description%> </p>
+  <h1> Media Spotlight: <%= link_to "#{@top_media.title} by #{@top_media.creator}", work_path(@top_media)%> </h1>
+  <p> <%= @top_media.vote.users.length%> votes - <%= @top_media.description%> </p>
 </div>
 
+  <div class="top-media"> 
+    <div> 
+      <h3>Top Albums </h3>
+      <% @albums.each do |album| %>
+       <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><%= link_to album.title, work_path(album)%> </h4>
+            <p class="card-text"> by <%= album.creator%> | <%= album.vote.users.length%> votes</p>
+          </div>
+        </div>
+      <% end %> 
+    </div> 
+    <div> 
+      <h3>Books </h3>
+        <% @books.each do |book| %>
+       <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"> <%= link_to book.title, work_path(book)%> </h4>
+            <p class="card-text"> by <%= book.creator%> | <%= book.vote.users.length%> votes</p>
+          </div>
+        </div>
+      <% end %> 
+    </div> 
+    <div> 
+      <h3>Movies </h3>
+        <% @movies.each do |movie| %>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"> <%= link_to movie.title, work_path(movie)%></h4>
+            <p class="card-text">by <%= movie.creator%> | <%= movie.vote.users.length%> votes </p>
+          </div>
+        </div>
+      <% end %> 
+    </div> 
+</div>
 
-<h3>Albums </h3>
-<%= render partial: "shared/list", locals: { type: @albums } %>
-
-<h3>Books </h3>
-<%= render partial: "shared/list", locals: { type: @books } %>
-
-<h3>Movies </h3>
-<%= render partial: "shared/list", locals: { type: @movies } %>
 

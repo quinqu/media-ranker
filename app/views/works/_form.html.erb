@@ -1,7 +1,10 @@
+
+
   <%= form_with model: @work do |f| %>
 
     
   <div class="dropdown"> 
+    <%= f.label "Type:" %>
     <%= f.select :category, options_for_select(Work.category_options) %>
   </div> 
 
