@@ -1,9 +1,10 @@
+<div class="media-spotlight"> 
+  <h3> Media Spotlight: <%=@top_media.title%> by <%=@top_media.creator%> </h3>
+  <p> <%= @top_media.description%> </p>
+</div>
 
-<h3> Media Spotlight: <%=@top_media.title%> by <%=@top_media.creator%> </h3>
-<p> <%= @top_media.description%> </p>
 
 <h3>Albums </h3>
-
 <%= render partial: "shared/list", locals: { type: @albums } %>
 
 <h3>Books </h3>

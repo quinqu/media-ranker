@@ -1,20 +1,29 @@
   <%= form_with model: @work do |f| %>
+
     
-    
+  <div class="dropdown"> 
     <%= f.select :category, options_for_select(Work.category_options) %>
+  </div> 
 
+  <div class="form-group"> 
     <%= f.label "Title:" %>
-    <%= f.text_field :title, placeholder: "#{title}" %>
+    <%= f.text_field :title, placeholder: "#{title}", class: "form-control" %>
+  </div> 
 
+  <div class="form-group"> 
     <%= f.label "Creator:" %>
-    <%= f.text_field :creator, placeholder: "#{creator}" %>
+    <%= f.text_field :creator, placeholder: "#{creator}", class: "form-control" %>
+  </div> 
 
+  <div class="form-group"> 
     <%= f.label "Publication Year:" %>
-    <%= f.text_field :year, placeholder: "#{year}" %>
+    <%= f.text_field :year, placeholder: "#{year}", class: "form-control" %>
+  </div> 
 
+  <div class="form-group"> 
     <%= f.label "Description:" %>
-    <%= f.text_field :description, placeholder: "#{description}" %>
-
+    <%= f.text_field :description, placeholder: "#{description}", class: "form-control" %>
+  </div> 
    
     <%= f.submit "#{action_name} Media" %>
 
