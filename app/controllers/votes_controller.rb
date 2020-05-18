@@ -4,8 +4,6 @@ class VotesController < ApplicationController
     @vote = Vote.find_by(id: params[:format])
     user  = User.find_by(id: session[:user_id])
 
-
-
     if user.nil? 
       flash[:error] = "You need to be logged in to vote on media"
       redirect_to login_path

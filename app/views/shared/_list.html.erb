@@ -4,15 +4,15 @@
       <th> Title </th>
       <th> Created By </th>
       <th> Published </th>
-      <th> Upvote </th>
+      <th> Like? </th>
   </tr>
-  <% type.each do |album|%>
+  <% type.each do |work|%>
   <tr>
-    <% vote_id = album.vote.id %>
+    <% vote_id = work.vote.id %>
     <td> <%= User.get_users(vote_id).length %> </td>
-    <td><%= link_to album.title, work_path(album.id) %> </td>
-    <td> <%= album.creator %> </td> 
-    <td> <%= album.year %> </td> 
+    <td><%= link_to work.title, work_path(work.id) %> </td>
+    <td> <%= work.creator %> </td> 
+    <td> <%= work.year %> </td> 
     <td> <%= link_to "Upvote", upvote_path(vote_id), method: :get %> </td> 
   </tr>
   <% end %>

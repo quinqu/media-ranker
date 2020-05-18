@@ -38,7 +38,6 @@ class WorksController < ApplicationController
       head :not_found
       return 
     end
-
   end 
 
 
@@ -54,8 +53,6 @@ class WorksController < ApplicationController
       render :edit 
       return 
     end 
-
-
   end 
 
   def destroy 
@@ -75,6 +72,4 @@ class WorksController < ApplicationController
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :year, :description)
   end 
-
-  
 end

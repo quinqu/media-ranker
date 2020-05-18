@@ -6,8 +6,4 @@ class TopMediaController < ApplicationController
     @movies = Work.find_top_amount("movie")
   end 
 
-
-
-
-
 end

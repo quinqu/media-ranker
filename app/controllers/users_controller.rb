@@ -50,19 +50,11 @@ class UsersController < ApplicationController
       flash[:error] = "You are not logged in"
       redirect_to root_path
     end
-
   end 
 
-
-  def current 
-
+  def current
+    redirect_to user_path(session[:user_id])
   end 
-
-  private 
-
-  # def user_params
-  #   return params.require(:user).permit(:username)
-  # end 
 
 
 end

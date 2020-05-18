@@ -38,28 +38,25 @@ describe Work do
   end 
 
   describe "work model methods" do 
-    it "will get top albums, books, movies" do 
-      albums = Work.find_top_albums
-      expect(albums).must_be_instance_of Array
-      #expect(albums.length).must_equal 10 
-
-      books = Work.find_top_books
-      expect(books).must_be_instance_of Array
-
-      movies = Work.find_top_albums
-      expect(movies).must_be_instance_of Array
-    end 
 
     it "will find the top media " do 
-      #TODO
-
+      movie = Work.create(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
+      vote = Vote.find_by(work_id: movie.id)
+      answ = vote.nil?
+      expect(answ).must_equal false
     end 
 
     it "will return catergory options for view" do 
       options = Work.category_options
       expect(options).must_be_instance_of Array
+    end 
 
+    it "will create a vote for every work instance" do 
+      movie = Work.create(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
+      vote = Vote.find_by(work_id: movie.id)
+      expect(vote.work_id).must_equal movie.id
     end 
 
   end 
+
 end
