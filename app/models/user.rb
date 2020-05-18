@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_and_belongs_to_many :votes
-
+  validates :username, presence: true
+  
   def self.get_users(vote_id)
     users = []
     vote = Vote.find_by(id: vote_id)
