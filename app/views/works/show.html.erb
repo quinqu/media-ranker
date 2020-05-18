@@ -1,8 +1,8 @@
   
-  
+ <div class="works-index"> 
   <h2> <%= @work.title %> </h2> 
 
-  <p><%= @work.category %> </p> 
+  <p><%= @work.category.capitalize() %> </p> 
   <p> Creator: <%= @work.creator %></p> 
   <p> Publication Year: <%= @work.year %></p> 
 
@@ -16,8 +16,8 @@
  <% user = User.find_by(id: session[:user_id])%>
  <%= link_to "Add Vote", upvote_path(vote.id), method: :get%>
 
- <table> 
-  <tr> 
+ <table class="table table-striped table-hover"> 
+  <tr class="thead-light"> 
     <th> User </th> 
     <th> Join Date </th> 
   </tr> 
@@ -28,3 +28,4 @@
     </tr> 
   <%end%> 
  </table> 
+</div> 

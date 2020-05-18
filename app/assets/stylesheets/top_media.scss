@@ -5,13 +5,15 @@
 
 .media-spotlight{
   padding: 5% 5% 3% 5%;
-  
+  background-color: #EEE671;
+  border: solid white 20px;
 }
 
 .top-media {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 3%;
+  
   
 }
 .top-media > * >  h3 {

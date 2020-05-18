@@ -1,21 +1,24 @@
-<h3> Login Here </h3>
-<body>
-  <section class="flash-msg__section">
-    <% flash.each do |name, message| %>
-      <strong class="<%= name %>">
-        <%= message %>
-      </strong>
-    <% end %>
-  </section>
 
-  <%= yield %>
-</body>
+<div class="form"> 
+  <h3> Login Here </h3>
+  <body>
+    <section class="flash-msg__section">
+      <% flash.each do |name, message| %>
+        <strong class="<%= name %>">
+          <%= message %>
+        </strong>
+      <% end %>
+    </section>
 
-<%= form_with model: @user, url: login_path do |f| %>
-  <div>
-    <%= f.label "Username:" %>
-    <%= f.text_field :username %>
-  </div>  
-    <%= f.submit "Login" %>
-  
-<% end %>
+    <%= yield %>
+  </body>
+
+  <%= form_with model: @user, url: login_path do |f| %>
+    <div class="form-group">
+      <%= f.label "Username:" %>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>  
+      <%= f.submit "Login" %>
+    
+  <% end %>
+</div> 
