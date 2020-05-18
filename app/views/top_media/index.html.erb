@@ -8,25 +8,36 @@
     <div> 
       <h3>Top Albums </h3>
       <% @albums.each do |album| %>
-        <h5> <%= album.title %> </h5> 
-        <p> by <%= album.creator%> </p> 
-        <p> <%=album.vote.users.length%> votes </p> 
+       <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"> <%= album.title %> </h4>
+            <p class="card-text"> by <%= album.creator%> | <%= album.vote.users.length%> votes</p>
+          </div>
+        </div>
       <% end %> 
     </div> 
     <div> 
       <h3>Books </h3>
         <% @books.each do |book| %>
-        <h5> <%= book.title %> </h5> 
-        <p> by <%= book.creator%> </p> 
-        <p> <%= book.vote.users.length%> votes </p> 
+       <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"> <%= book.title %> </h4>
+            <p class="card-text"> by <%= book.creator%> | <%= book.vote.users.length%> votes</p>
+          </div>
+        </div>
       <% end %> 
     </div> 
     <div> 
       <h3>Movies </h3>
         <% @movies.each do |movie| %>
-        <h5> <%= movie.title %> </h5> 
-        <p> by <%= movie.creator%> </p> 
-        <p> <%=movie.vote.users.length%> votes </p> 
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"> <%= movie.title %> </h4>
+            <p class="card-text">by <%= movie.creator%> | <%= movie.vote.users.length%> votes </p>
+          </div>
+        </div>
       <% end %> 
     </div> 
 </div>
+
+
