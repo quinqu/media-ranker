@@ -1,9 +1,9 @@
 class WorksController < ApplicationController
 
   def index 
-    @albums = Work.where(category: "album")
-    @books = Work.where(category: "book")
-    @movies = Work.where(category: "movie")
+    @albums = Work.sort_media("album")
+    @books = Work.sort_media("book")
+    @movies = Work.sort_media("movie")
   end 
 
   def show 
@@ -13,7 +13,6 @@ class WorksController < ApplicationController
     if @work.nil?
       redirect_to works_path
     end 
-
   end 
 
   def new

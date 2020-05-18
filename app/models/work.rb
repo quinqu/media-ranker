@@ -23,6 +23,13 @@ class Work < ApplicationRecord
     works = Work.all
     works = works.sort_by { |work| work.vote.users.length }
     return works[works.length - 1]
+  end
+  
+  def self.sort_media(type)
+
+    works = Work.where(category: type)
+    works = works.sort_by { |work| work.vote.users.length }
+    return works.reverse
   end 
 
   protected 
