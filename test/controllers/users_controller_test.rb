@@ -66,5 +66,22 @@ describe UsersController do
     end
   end 
 
+  describe " current " do 
+    it "will direct to current user" do 
+      user = User.create(username: "test user")
+      login_data = {
+        user: {
+          username: "test user"
+        }
+      }
+
+      post login_path, params: login_data
+
+      expect(session[:user_id]).must_equal user.id
+      get current_user_path
+      must_respond_with :redirect
+    end 
+
+  end 
   
 end
