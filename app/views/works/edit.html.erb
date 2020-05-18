@@ -1,8 +1,8 @@
 <div class="form">   
-  <h1> Edit Media </h1> 
+  <h1 class="works-header"> Edit Media </h1> 
 
   <% if @work.errors.any? %>
-    <ul>
+    <ul class="errors">
       <% @work.errors.each do |column, message| %>
         <li>
           <strong> <%= column.capitalize %> </strong> <%= message %>
