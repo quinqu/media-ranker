@@ -14,4 +14,4 @@
  
  <% vote = Vote.find_by(work_id: @work.id)%>
  <% user = User.find_by(id: session[:user_id])%>
- <%= link_to "Add Vote", vote_user_path(user.id)%>
+ <%= link_to "Add Vote", upvote_path(vote.id), method: :get%>

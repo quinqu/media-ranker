@@ -15,7 +15,13 @@ Rails.application.routes.draw do
     resources :votes, only: [:index]
   end
 
-  resources :users #do 
+  resources :users do 
+    resources :votes, only: [:index]
+  end 
+
+  # resources :votes do 
+  #   resources :users, only: [:index, :show]
+  # end 
 
 
   get "/upvote/", to: "votes#upvote", as: "upvote"
