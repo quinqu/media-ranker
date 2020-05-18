@@ -28,6 +28,5 @@ describe User do
     vote.users << user
 
     expect(User.not_voted(vote.id,user.id)).must_equal false 
-
   end 
 end
