@@ -7,7 +7,6 @@
     <th> Created By </th>
     <th> Published </th>
     <th> Category </th>
-    <th> Voted On </th>
   </tr>
 <% @user.votes.each do |vote| %>
   <% work = Work.find_by(id: vote.work_id)%>
@@ -16,7 +15,6 @@
     <td>  <%= work.creator %></td>
     <td>  <%= work.year %></td>
     <td>  <%= work.category %></td>
-    <td> date </td>
 
   </tr>
 

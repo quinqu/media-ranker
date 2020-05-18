@@ -25,7 +25,6 @@ class UsersController < ApplicationController
         flash[:error] = "Unable to login"
         redirect_to root_path
       end 
-
       flash[:welcome] = "Welcome #{@user.username}"
     else
 
@@ -33,7 +32,7 @@ class UsersController < ApplicationController
     end 
 
     session[:user_id] = @user.id
-    redirect_to new_work_path
+    redirect_to root_path
     end 
 
   def logout 
@@ -41,7 +40,8 @@ class UsersController < ApplicationController
       user = User.find_by(id: session[:user_id])
       unless user.nil? 
         session[:user_id] = nil
-        flash[:notice] = "Goodbye"
+        flash[:notice] = "Goodbye #{@user.username}"
+        redirect_to root_path
       else
         session[:user_id] = nil
         flash[:error] = "Unknow User"
