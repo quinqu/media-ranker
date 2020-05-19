@@ -26,24 +26,41 @@ a {
 
 .nav {
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 80% 20%;
   width: 100%;
   padding-top: 4% !important;
+  
 }
 
 .nav-link{
   color: white;
+  padding-left: 0;
 }
 
 .login{
   float: right;
   text-align: end;
 }
+.logout {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  text-align: center;
+  padding-right: 0;
+  margin: auto;
+}
+.button_to > * {
+  padding-left: 10px;
+  margin-left: 20%;
+  text-align: center;
+  color:black;
+  float:right;
+}
+
+
 .main-links{
   width: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
 }
 
 .form {
