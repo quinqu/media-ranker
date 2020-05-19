@@ -13,11 +13,12 @@
 <% @user.votes.each do |vote| %>
   <% work = Work.find_by(id: vote.work_id)%>
   <tr>
-    <td> <%= work.title %> </td>
+    <% if !work.nil? %>
+    <td> <%= link_to work.title, work_path(work) %> </td>
     <td>  <%= work.creator %></td>
     <td>  <%= work.year %></td>
     <td>  <%= work.category %></td>
-
+    <%end%>
   </tr>
 
   <%end %>

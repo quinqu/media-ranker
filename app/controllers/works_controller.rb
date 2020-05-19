@@ -60,8 +60,10 @@ class WorksController < ApplicationController
       redirect_to works_path 
       return 
     end 
-
+    vote = Vote.find_by(work_id: @work.id)
+    vote.destroy
     @work.destroy 
+    
     redirect_to works_path 
     return 
   end 
