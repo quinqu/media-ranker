@@ -7,12 +7,12 @@
     <p> <%= @work.description %></p>
   </div> 
   <div class="works-show-links"> 
-    <%= link_to "Back to Media Ranks", top_media_index_path %>
-    <%= link_to "Edit Media", edit_work_path(@work) %>
+    <%= button_to "Back to Media Ranks", top_media_index_path, method: :get %>
+    <%= button_to "Edit Media", edit_work_path(@work), method: :get %>
     <% vote = Vote.find_by(work_id: @work.id)%>
     <% user = User.find_by(id: session[:user_id])%>
-    <%= link_to "Add Vote", upvote_path(vote.id), method: :get%>
-    <%= link_to "Delete Media", work_path(@work), method: :delete, data: {confirm: "Are you sure you want to delete #{@work.title}?"}  %>
+    <%= button_to "Add Vote", upvote_path(vote.id), method: :get%>
+    <%= button_to "Delete Media", work_path(@work), method: :delete, data: {confirm: "Are you sure you want to delete #{@work.title}?"}  %>
   </div>
  <table class="table table-striped table-hover"> 
   <tr class="thead-light"> 

@@ -1,18 +1,6 @@
 
 <div class="form"> 
-  <h3> Login Here </h3>
-  <body>
-    <section class="flash-msg__section">
-      <% flash.each do |name, message| %>
-        <strong class="<%= name %>">
-          <%= message %>
-        </strong>
-      <% end %>
-    </section>
-
-    <%= yield %>
-  </body>
-
+  <h3> Sign in </h3> 
   <%= form_with model: @user, url: login_path do |f| %>
     <div class="form-group">
       <%= f.label "Username:" %>
