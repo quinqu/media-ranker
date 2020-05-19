@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_action :find_work, except: [:index, :new, :create]
+  before_action :require_login, only: [:new, :create, :edit, :update]
 
   def index 
     @albums = Work.sort_media("album")
@@ -7,9 +9,6 @@ class WorksController < ApplicationController
   end 
 
   def show 
-    work_id = params[:id]
-    @work= Work.find_by(id: work_id)
-  
     if @work.nil?
       redirect_to works_path
     end 
@@ -32,16 +31,13 @@ class WorksController < ApplicationController
   end 
 
   def edit 
-    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
       return 
     end
   end 
 
-
   def update 
-    @work = Work.find_by(id: params[:id])
     if @work.nil? 
       head :not_found
       return 
@@ -55,7 +51,6 @@ class WorksController < ApplicationController
   end 
 
   def destroy 
-    @work = Work.find_by(id: params[:id])
     if @work.nil? 
       redirect_to works_path 
       return 
@@ -63,7 +58,6 @@ class WorksController < ApplicationController
     vote = Vote.find_by(work_id: @work.id)
     vote.destroy
     @work.destroy 
-    
     redirect_to works_path 
     return 
   end 
@@ -73,4 +67,9 @@ class WorksController < ApplicationController
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :year, :description)
   end 
+
+  def find_work
+    @work = Work.find_by(id: params[:id])
+  end 
+
 end

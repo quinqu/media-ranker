@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index 
     @user = User.all 
   end 
@@ -32,7 +31,7 @@ class UsersController < ApplicationController
     end 
     session[:user_id] = @user.id
     redirect_to root_path
-    end 
+  end 
 
   def logout 
     if session[:user_id]
@@ -44,7 +43,7 @@ class UsersController < ApplicationController
         redirect_to root_path
       else
         session[:user_id] = nil
-        flash[:error] = "Unknow User"
+        flash[:error] = "Unknown User"
       end 
     else 
       flash[:error] = "You are not logged in"
@@ -57,6 +56,10 @@ class UsersController < ApplicationController
   def current
     redirect_to user_path(session[:user_id])
   end 
+
+  private 
+
+  
 
 
 end

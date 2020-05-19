@@ -16,6 +16,7 @@ describe WorksController do
 
   describe "new" do 
     it "can get the new work page" do 
+      login()
       get new_work_path 
 
       must_respond_with :success
@@ -26,6 +27,7 @@ describe WorksController do
 
   describe "create" do 
     it "can create a new work" do 
+      login()
         new_work = {
           work: { 
             title: "Yeet", 
@@ -50,8 +52,8 @@ describe WorksController do
   end 
 
   describe "edit " do 
-
-    it "will edit" do 
+    it "will edit" do
+      login()
       edit_work = {
         work: { 
           title: "Night and Blur", 
@@ -70,6 +72,7 @@ describe WorksController do
     end 
 
     it "will respond with redirect if nonexistent work" do
+      login()
       get edit_work_path(-100)
       must_respond_with :not_found
     end
@@ -77,16 +80,16 @@ describe WorksController do
 
   describe "update" do 
     it "will update el work " do 
-
-    update_work = {
-      work: { 
-        title: "Night and Blur", 
-        category: "album", 
-        year: "2020", 
-        description: "awesome album", 
-        creator: "The Bilinda Butchers"
+      login()
+      update_work = {
+        work: { 
+          title: "Night and Blur", 
+          category: "album", 
+          year: "2020", 
+          description: "awesome album", 
+          creator: "The Bilinda Butchers"
+        }
       }
-    }
 
     work = Work.first
     patch work_path(work.id), params: update_work
@@ -94,15 +97,18 @@ describe WorksController do
     expect(Work.first.title).must_equal update_work[:work][:title]
     expect(Work.first.year).must_equal update_work[:work][:year]
     end 
-
   end 
 
 
   describe "delete" do 
     it "will delete work" do
+      login()
       Work.create(title: "delete me", category: "book", year: "2000", description: "DELETE", creator: "creator")
       work = Work.first
-      expect{delete work_path(Work.first.id)}.must_differ "Work.count", -1
+      vote = Vote.create(work_id: work.id)
+      expect {
+        delete work_path(Work.first.id)
+      }.must_differ "Work.count", -1
     end
 
   end 

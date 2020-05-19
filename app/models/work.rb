@@ -5,13 +5,12 @@ class Work < ApplicationRecord
   validates :creator, presence: true
   validates :year, presence: true
   validates :description, presence: true
-
+  
 
 
   def create_vote
     vote = Vote.create(work_id: self.id)
   end  
-
 
   def self.find_top_amount(type)
     works = Work.where(category: type)
