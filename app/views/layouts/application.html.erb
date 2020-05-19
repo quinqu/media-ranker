@@ -9,9 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="bg-dark app-header"> 
-  <h1 class="text-center"> MediaRanker | Rank the Best of Everything </h1> 
-  <nav class="bg-dark"> 
+  <header class="app-header"> 
+  <div class="app-title"> <h1 class="media-ranker"> MediaRanker </h1>  <h1> | Rank the Best of Everything </h1> </div> 
+  <nav> 
     <ul class="nav"> 
     <div class="main-links"> 
       <li class="navbar-item"><%= link_to "View Top Media", top_media_index_path, class: "nav-link" %> </li> 
@@ -21,13 +21,13 @@
     </div>  
       <% if !session[:user_id]%>
        <div class="login">
-        <li class="navbar-item"><%= button_to "Login", login_path, method: :get,class: "nav-link" %> </li>
+        <li class="navbar-item"><%= button_to "Login", login_path, method: :get,class: "nav-link btn btn-primary" %> </li>
         </div>
       <%else%>
        <div class="logout">
         <% user = User.find_by(id: session[:user_id])%>
-        <li class="navbar-item"><%= button_to  "Logged in as #{user.username}", current_user_path, method: :get, class:"nav-link"%></li>
-        <li class="navbar-item"><%= button_to  "Logout", logout_path, method: :post, class:"nav-link"%> </li>
+        <li class="navbar-item"><%= button_to  "Logged in as #{user.username}", current_user_path, method: :get, class:"nav-link btn btn-primary"%></li>
+        <li class="navbar-item"><%= button_to  "Logout", logout_path, method: :post, class:"nav-link btn btn-primary"%> </li>
         </div> 
       <%end%>
     </div> 

@@ -5,19 +5,13 @@
 
 .media-spotlight{
   padding: 5% 5% 3% 5%;
-  background-color: #EEE671;
   border: solid white 20px;
 }
 
 .top-media {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 3%;
-  
-  
-}
-.top-media > * >  h3 {
-  text-align: center;
+  padding: 3%; 
 }
 .card {
   padding: 1%;
@@ -26,5 +20,13 @@
 
 .top-media > div {
   padding: 3%;
+}
+.top-media > * > h3 {
+  color: #26A69A;
+  border-bottom: 2px solid;
+  border-bottom-color: #B2DFDB
+}
 
+.card {
+  border:none;
 }

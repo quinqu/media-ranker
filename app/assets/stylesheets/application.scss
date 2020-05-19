@@ -18,12 +18,23 @@
 .app-header {
   padding: 5% 5% 3% 5%;
   color: white;
+  background-color: #B2DFDB;
 }
 
 a {
-  color: #CE5F1E;
+  color: #26A69A;
 }
 
+.app-title{
+  display: grid;
+  grid-template-columns: 1fr 1fr 10%;
+  margin-right: 10%;
+
+}
+.media-ranker {
+  margin-left: 55%;
+  color: #FF5722;
+}
 .nav {
   display: grid;
   grid-template-columns: 80% 20%;
@@ -33,7 +44,6 @@ a {
 }
 
 .nav-link{
-  color: white;
   padding-left: 0;
 }
 
@@ -52,10 +62,13 @@ a {
   padding-left: 10px;
   margin-left: 20%;
   text-align: center;
-  color:black;
   float:right;
 }
+.btn-primary{
+  background-color: #26A69A;
+  border: none;
 
+}
 
 .main-links{
   width: fit-content;
@@ -71,4 +84,8 @@ a {
 .errors {
   list-style: none;
   color: red;
+}
+
+h3 {
+  color: #26A69A;
 }
