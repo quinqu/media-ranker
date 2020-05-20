@@ -1,8 +1,4 @@
-
-
-  <%= form_with model: @work do |f| %>
-
-    
+<%= form_with model: @work do |f| %>
   <div class="dropdown"> 
     <%= f.label "Type:" %>
     <%= f.select :category, options_for_select(Work.category_options) %>
@@ -27,7 +23,7 @@
     <%= f.label "Description:" %>
     <%= f.text_field :description, placeholder: "#{description}", class: "form-control" %>
   </div> 
-   
-    <%= f.submit "#{action_name} Media" %>
 
-  <% end %> 
+  <%= f.submit "#{action_name} Media" %>
+
+<% end %> 

@@ -1,13 +1,12 @@
 class Work < ApplicationRecord
   has_one :vote
+  has_many :users, :through => :vote
   after_create :create_vote
   validates :title, presence: true, uniqueness: true
   validates :creator, presence: true
   validates :year, presence: true
   validates :description, presence: true
-  
-
-
+ 
   def create_vote
     vote = Vote.create(work_id: self.id)
   end  
@@ -32,7 +31,11 @@ class Work < ApplicationRecord
     end 
     
     works = Work.where(category: type)
-    works = works.sort_by { |work| work.vote.users.length }
+
+    works = works.sort_by { |work| 
+      work.vote.users.length 
+      puts work.vote.users}
+
     return works.reverse
   end 
 

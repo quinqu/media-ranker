@@ -1,6 +1,5 @@
 <div class="form">   
   <h1 class="works-header"> Edit Media </h1> 
-
   <% if @work.errors.any? %>
     <ul class="errors">
       <% @work.errors.each do |column, message| %>
@@ -10,7 +9,7 @@
       <% end %>
     </ul>
   <% end %>
-
+  
   <%= render partial: "form", locals: { action_name: "Edit", title: "#{@work.title}", category: "#{@work.category}", year: "#{@work.year}", description: "#{@work.description}", creator: "#{@work.creator}"}  %>
 </div> 
 

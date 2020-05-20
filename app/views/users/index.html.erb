@@ -1,21 +1,19 @@
 <div class="users-index"> 
-<h3 class="user-header"> List of Users </h3> 
+  <h3 class="user-header"> List of Users </h3> 
 
-<table class="table">
-  <tr> 
-    <th> Username </th>
-    <th> Votes </th>
-    <th> Join Date </th>
-  </tr>
-    <%@user.each do |u| %>
-    <tr>
-      <td> <%= link_to u.username, user_path(u.id) %></td>
-      <td> <%= u.votes.length %></td>
-      <td> <%= u.join_date %></td>
-     
+  <table class="table">
+    <tr> 
+      <th> Username </th>
+      <th> Votes </th>
+      <th> Join Date </th>
     </tr>
-  <%end %>
-</table>
-
+      <%@user.each do |u| %>
+      <tr>
+        <td> <%= link_to u.username, user_path(u.id) %></td>
+        <td> <%= u.votes.length %></td>
+        <td> <%= u.join_date %></td>
+      </tr>
+    <%end %>
+  </table>
 </div> 
 

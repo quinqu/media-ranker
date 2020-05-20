@@ -57,21 +57,28 @@ describe Work do
       expect(vote.work_id).must_equal movie.id
     end 
     
-    # it "will sort media by votes" do 
-    #   album =  Work.create(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
-    #   album2 =  Work.create(title: "Test", category: "movie", year: "2030", description: "random", creator: "creator")
- 
+    it "will sort media by votes" do 
 
-    #   vote = Vote.find_by(work_id: album.id)
+      album = works(:album)
+      #album.save #Work.create(title: "Title", category: "album", year: "2000", description: "hi", creator: "creator")
+      album2 =  works(:album2)
+      #album2.save #Work.create(title: "Test", category: "album", year: "2030", description: "random", creator: "creator")
+      vote = Vote.find_by(work_id: album)
+      vote2 = Vote.find_by(work_id: album2)
       
+      vote.users.create(username: "test", join_date: Date.new.to_s)
 
-    #   vote.users << User.create(username: "test")
-    #   vote.users << User.create(username: "test2")
-      
-    #   sorted = Work.sort_media("album")
-    #   expect(sorted[0].title).must_equal works(:album).title
+      expect(vote.users[0].username).must_equal "test"
+      vote2.users.create(username: "test2", join_date: Date.new.to_s)
 
-    # end 
+      expect(album.vote.users[0].username).must_equal "test"
+      expect(album2.vote.users.length).must_equal 1
+
+      # sorted = Work.sort_media("album")
+
+      # expect(sorted[0].vote.users[0].username).must_equal "test"
+     
+    end 
 
     it "will raise an error if invalid type" do 
 

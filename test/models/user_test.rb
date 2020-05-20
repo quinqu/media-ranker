@@ -46,7 +46,5 @@ describe User do
       end 
       expect(error.to_s).must_equal "username"
     end 
-
-
   end 
 end

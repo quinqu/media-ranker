@@ -1,18 +1,13 @@
 <div class="works-index"> 
-<h3 class="works-header"> List of All Works </h3> 
+  <h3 class="works-header"> List of All Works </h3> 
 
-<h3>Albums </h3>
+  <h3>Albums </h3>
+  <%= render partial: "shared/list", locals: { type: @albums } %>
 
-<%= render partial: "shared/list", locals: { type: @albums } %>
+  <h3>Books </h3>
+  <%= render partial: "shared/list", locals: { type: @books } %>
 
+  <h3>Movies </h3>
+  <%= render partial: "shared/list", locals: { type: @movies } %>
 
-
-<h3>Books </h3>
-
-<%= render partial: "shared/list", locals: { type: @books } %>
-
-
-<h3>Movies </h3>
-
-<%= render partial: "shared/list", locals: { type: @movies } %>
 </div> 
