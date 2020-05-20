@@ -21,7 +21,6 @@ describe User do
     user = users(:user2)
     #Act & Assert
     expect(User.not_voted(vote.id, user.id)).must_equal true 
-
   end 
 
   it "will not let user vote if they have voted" do 

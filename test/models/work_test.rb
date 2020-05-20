@@ -5,16 +5,19 @@ describe Work do
   let (:new_work) {
     Work.new(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
   }
+
   it "can be instantiated" do
     # Assert
     expect(new_work.valid?).must_equal true
   end
 
   it "will have the required fields" do
+    #Arrange
     new_work.save
-
     work = Work.first
+    #Act
     [:title, :category, :year, :description, :creator].each do |field|
+      #Assert
       expect(work).must_respond_to field
     end
   end
@@ -24,6 +27,7 @@ describe Work do
       movie = works(:movie)
       expect(movie.creator).must_equal "Jordan Peele"
     end 
+
     it "can change the creator" do 
       album = works(:album)
       album.update_attribute(:creator, "Alex G")
@@ -38,10 +42,9 @@ describe Work do
   end 
 
   describe "work model methods" do 
-
     it "will find the top media " do 
-      movie = Work.create(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
-      vote = Vote.find_by(work_id: movie.id)
+      new_work.save
+      vote = Vote.find_by(work_id: new_work.id)
       answ = vote.nil?
       expect(answ).must_equal false
     end 
@@ -57,33 +60,29 @@ describe Work do
       expect(vote.work_id).must_equal movie.id
     end 
     
-    it "will sort media by votes" do 
+    # it "will sort media by votes" do 
 
-      album = works(:album)
-      #album.save #Work.create(title: "Title", category: "album", year: "2000", description: "hi", creator: "creator")
-      album2 =  works(:album2)
-      #album2.save #Work.create(title: "Test", category: "album", year: "2030", description: "random", creator: "creator")
-      vote = Vote.find_by(work_id: album)
-      vote2 = Vote.find_by(work_id: album2)
+    #   album = works(:album)
+    #   album2 =  works(:album2)
+    #   vote = Vote.find_by(work_id: album)
+    #   vote2 = Vote.find_by(work_id: album2)
       
-      vote.users.create(username: "test", join_date: Date.new.to_s)
+    #   vote.users.create(username: "test", join_date: Date.new.to_s)
 
-      expect(vote.users[0].username).must_equal "test"
-      vote2.users.create(username: "test2", join_date: Date.new.to_s)
+    #   expect(vote.users[0].username).must_equal "test"
+    #   vote2.users.create(username: "test2", join_date: Date.new.to_s)
 
-      expect(album.vote.users[0].username).must_equal "test"
-      expect(album2.vote.users.length).must_equal 1
+    #   expect(album.vote.users[0].username).must_equal "test"
+    #   expect(album2.vote.users.length).must_equal 1
 
-      # sorted = Work.sort_media("album")
+    #   # sorted = Work.sort_media("album")
 
-      # expect(sorted[0].vote.users[0].username).must_equal "test"
+    #   # expect(sorted[0].vote.users[0].username).must_equal "test"
      
-    end 
+    # end 
 
     it "will raise an error if invalid type" do 
-
-      expect{Work.sort_media("nothing")}.must_raise ArgumentError
-
+      expect{ Work.sort_media("nothing") }.must_raise ArgumentError
     end
 
   end 
