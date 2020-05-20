@@ -95,9 +95,7 @@ describe Work do
         error = column 
       end 
       expect(error.to_s).must_equal "title"
-
     end 
-
   end 
 
 end
