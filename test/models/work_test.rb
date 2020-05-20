@@ -56,7 +56,7 @@ describe Work do
       vote = Vote.find_by(work_id: movie.id)
       expect(vote.work_id).must_equal movie.id
     end 
-
+    
     # it "will sort media by votes" do 
     #   album =  Work.create(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
     #   album2 =  Work.create(title: "Test", category: "movie", year: "2030", description: "random", creator: "creator")
@@ -78,6 +78,25 @@ describe Work do
       expect{Work.sort_media("nothing")}.must_raise ArgumentError
 
     end
+
+  end 
+
+  describe "validations" do 
+    it "will not create work with missing required input" do 
+      work = Work.create(title: "" ,  category: "movie", year: "2000", description: "hi", creator: "creator")
+      expect(work.errors.nil?).must_equal false
+    end 
+
+    it "will validate unique titles" do 
+      new_work.save
+      not_unique = Work.create(title: "Title", category: "movie", year: "2000", description: "hi", creator: "creator")
+      error = ""
+      not_unique.errors.each do |column, message|
+        error = column 
+      end 
+      expect(error.to_s).must_equal "title"
+
+    end 
 
   end 
 

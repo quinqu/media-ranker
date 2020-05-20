@@ -1,7 +1,7 @@
 class Work < ApplicationRecord
   has_one :vote
   after_create :create_vote
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :creator, presence: true
   validates :year, presence: true
   validates :description, presence: true
