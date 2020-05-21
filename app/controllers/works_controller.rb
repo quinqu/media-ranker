@@ -42,6 +42,7 @@ class WorksController < ApplicationController
       head :not_found
       return 
     elsif @work.update(work_params)
+      flash[:welcome] = "Successfully Updated"
       redirect_to work_path
       return 
     else

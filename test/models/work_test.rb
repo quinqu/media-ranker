@@ -84,7 +84,6 @@ describe Work do
     it "will raise an error if invalid type" do 
       expect{ Work.sort_media("nothing") }.must_raise ArgumentError
     end
-
   end 
 
   describe "validations" do 

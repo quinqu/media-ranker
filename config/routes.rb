@@ -13,13 +13,9 @@ Rails.application.routes.draw do
 
   get "/users/current", to: "users#current", as: "current_user"
   
-  resources :works do 
-    resources :votes, only: [:index]
-  end
+  resources :works 
 
-  resources :users do 
-    resources :votes, only: [:index]
-  end 
+  resources :users 
 
   get "/upvote/", to: "votes#upvote", as: "upvote"
 end
