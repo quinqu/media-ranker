@@ -10,8 +10,10 @@
     <% @albums.each do |album| %>
       <div class="card">
         <div class="card-body">
+        <% if !album.title.nil?%>
           <h4 class="card-title"><%= link_to album.title, work_path(album)%> <small> by <%= album.creator%> </small> </h4>
           <p class="card-text">  <%= album.vote.users.length%> votes</p>
+        <% if !album.title.nil?%>
         </div>
       </div>
     <% end %> 
@@ -21,8 +23,10 @@
       <% @books.each do |book| %>
       <div class="card">
         <div class="card-body">
+         <% if !book.title.nil?%>
           <h4 class="card-title"> <%= link_to book.title, work_path(book)%> <small> by <%= book.creator%> </small></h4>
           <p class="card-text"> <%= book.vote.users.length%> votes</p>
+           <%end %>
         </div>
       </div>
     <% end %> 
@@ -32,8 +36,10 @@
       <% @movies.each do |movie| %>
       <div class="card">
         <div class="card-body">
+         <% if !movie.title.nil?%>
           <h4 class="card-title"> <%= link_to movie.title, work_path(movie)%> <small> by <%= movie.creator%> </small> </h4>
           <p class="card-text"> <%= movie.vote.users.length%> votes </p>
+           <% end%>
         </div>
       </div>
     <% end %> 
