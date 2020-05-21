@@ -14,6 +14,9 @@ class Work < ApplicationRecord
   def self.find_top_amount(type)
     works = Work.where(category: type)
     works = works.sort_by { |work| work.vote.users.length }
+    if works.nil? 
+      return Work.first
+    end 
     works = works.reject { |work| work.vote.users.length == 0 }
     return works.last(10).reverse
   end 
@@ -21,6 +24,10 @@ class Work < ApplicationRecord
   def self.find_top
     works = Work.all
     works = works.sort_by { |work| work.vote.users.length }
+
+    if works[works.length - 1].nil? 
+      return Work.first
+    end 
     return works[works.length - 1]
   end
   
