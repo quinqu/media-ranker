@@ -1,6 +1,8 @@
 <main class="media-spotlight"> 
+ <% if !@top_media.title.nil?%>
   <h2> Media Spotlight: <%= link_to "#{@top_media.title}", work_path(@top_media)%> by <%=@top_media.creator %> </h2>
   <p> <%= @top_media.vote.users.length%> votes - <%= @top_media.description%> </p>
+   <% end %>
 </main>
 
 <hr>
