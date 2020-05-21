@@ -1,21 +1,21 @@
 <main class="media-spotlight"> 
  <% if !@top_media.title.nil?%>
-  <h2> Media Spotlight: <%= link_to "#{@top_media.title}", work_path(@top_media)%> by <%=@top_media.creator %> </h2>
-  <p> <%= @top_media.vote.users.length%> votes - <%= @top_media.description%> </p>
-   <% end %>
+    <h2> Media Spotlight: <%= link_to "#{@top_media.title}", work_path(@top_media)%> by <%=@top_media.creator %> </h2>
+    <p> <%= @top_media.vote.users.length%> votes - <%= @top_media.description%> </p>
+  <% end %>
 </main>
 
-<hr>
+
 <div class="top-media"> 
   <section> 
     <h3>Top Albums </h3>
     <% @albums.each do |album| %>
       <div class="card">
         <div class="card-body">
-        <% if !album.title.nil?%>
-          <h4 class="card-title"><%= link_to album.title, work_path(album)%> <small> by <%= album.creator%> </small> </h4>
-          <p class="card-text">  <%= album.vote.users.length%> votes</p>
-        <% if !album.title.nil?%>
+          <% if !album.title.nil?%>
+            <h4 class="card-title"><%= link_to album.title, work_path(album)%> <small> by <%= album.creator%> </small> </h4>
+            <p class="card-text">  <%= album.vote.users.length%> votes</p>
+          <% end %>
         </div>
       </div>
     <% end %> 
@@ -25,23 +25,23 @@
       <% @books.each do |book| %>
       <div class="card">
         <div class="card-body">
-         <% if !book.title.nil?%>
-          <h4 class="card-title"> <%= link_to book.title, work_path(book)%> <small> by <%= book.creator%> </small></h4>
-          <p class="card-text"> <%= book.vote.users.length%> votes</p>
-           <%end %>
+          <% if !book.title.nil? %>
+            <h4 class="card-title"> <%= link_to book.title, work_path(book)%> <small> by <%= book.creator%> </small></h4>
+            <p class="card-text"> <%= book.vote.users.length%> votes</p>
+           <% end %>
         </div>
       </div>
     <% end %> 
   </section> 
   <section> 
     <h3>Top Movies </h3>
-      <% @movies.each do |movie| %>
+    <% @movies.each do |movie| %>
       <div class="card">
         <div class="card-body">
-         <% if !movie.title.nil?%>
-          <h4 class="card-title"> <%= link_to movie.title, work_path(movie)%> <small> by <%= movie.creator%> </small> </h4>
-          <p class="card-text"> <%= movie.vote.users.length%> votes </p>
-           <% end%>
+          <% if !movie.title.nil?%>
+            <h4 class="card-title"> <%= link_to movie.title, work_path(movie)%> <small> by <%= movie.creator%> </small> </h4>
+            <p class="card-text"> <%= movie.vote.users.length%> votes </p>
+          <% end%>
         </div>
       </div>
     <% end %> 
