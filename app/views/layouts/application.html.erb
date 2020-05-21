@@ -36,8 +36,8 @@
 
 
   <body>
-    <% if flash[:error] %>
-      <section class="flash-msg__section alert alert-danger">
+    <% if flash %>
+      <section class="<%= alert_style(flash) %>">
         <% flash.each do |name, message| %>
           <strong class="<%= name %>">
             <%= message %>
@@ -46,25 +46,6 @@
       </section>
     <%end %> 
 
-    <% if flash[:welcome] %>
-      <section class="flash-msg__section alert alert-success">
-        <% flash.each do |name, message| %>
-          <strong class="<%= name %>">
-            <%= message %>
-          </strong>
-        <% end %>
-      </section>
-    <%end %> 
-
-    <% if flash[:notice] %>
-      <section class="flash-msg__section alert alert-info">
-        <% flash.each do |name, message| %>
-          <strong class="<%= name %>">
-            <%= message %>
-          </strong>
-        <% end %>
-      </section>
-    <%end %> 
     <%= yield %>
   </body>
 </html>
