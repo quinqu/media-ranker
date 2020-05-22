@@ -21,5 +21,4 @@ class User < ApplicationRecord
     end 
     return true 
   end 
-  
 end

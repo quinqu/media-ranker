@@ -12,10 +12,9 @@
 }
 
 .user-show-buttons {
-display: grid;
-grid-template-columns: 1fr 1fr;
-float:left;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  float:left;
 }
 
 .user-show-buttons > * {
