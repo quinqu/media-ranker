@@ -41,8 +41,7 @@ class Work < ApplicationRecord
 
     works = works.sort_by { |work| 
       work.vote.users.length 
-      puts work.vote.users}
-
+     }
     return works.reverse
   end 
 
