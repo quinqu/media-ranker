@@ -38,7 +38,6 @@ class Work < ApplicationRecord
     end 
     
     works = Work.where(category: type)
-
     works = works.sort_by { |work| 
       work.vote.users.length 
      }

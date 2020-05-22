@@ -59,27 +59,6 @@ describe Work do
       vote = Vote.find_by(work_id: movie.id)
       expect(vote.work_id).must_equal movie.id
     end 
-    
-    # it "will sort media by votes" do 
-
-    #   album = works(:album)
-    #   album2 =  works(:album2)
-    #   vote = Vote.find_by(work_id: album)
-    #   vote2 = Vote.find_by(work_id: album2)
-      
-    #   vote.users.create(username: "test", join_date: Date.new.to_s)
-
-    #   expect(vote.users[0].username).must_equal "test"
-    #   vote2.users.create(username: "test2", join_date: Date.new.to_s)
-
-    #   expect(album.vote.users[0].username).must_equal "test"
-    #   expect(album2.vote.users.length).must_equal 1
-
-    #   # sorted = Work.sort_media("album")
-
-    #   # expect(sorted[0].vote.users[0].username).must_equal "test"
-     
-    # end 
 
     it "will raise an error if invalid type" do 
       expect{ Work.sort_media("nothing") }.must_raise ArgumentError
