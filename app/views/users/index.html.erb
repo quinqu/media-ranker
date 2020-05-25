@@ -7,7 +7,7 @@
       <th> Votes </th>
       <th> Join Date </th>
     </tr>
-      <%@user.each do |u| %>
+      <% @user.each do |u| %>
       <tr>
         <td> <%= link_to u.username, user_path(u.id) %></td>
         <td> <%= u.votes.length %></td>
